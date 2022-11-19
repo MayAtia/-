@@ -1,0 +1,18 @@
+#define Orange D1
+#define Brown D2
+
+void setup() {
+pinMode(Orange, OUTPUT);
+pinMode(Brown, OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+digitalWrite(Orange, HIGH);//on
+digitalWrite(Brown, LOW);
+delay(1000);
+digitalWrite(Orange, HIGH); //off
+digitalWrite(Brown, HIGH);
+delay(1000);
+}
