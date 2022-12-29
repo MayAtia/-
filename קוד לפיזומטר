@@ -1,0 +1,32 @@
+#define pinA D5
+#define pinB D6
+#define pinC D7
+
+#define pinInOut A0
+
+void setup() {
+  pinMode(pinA,OUTPUT);
+  pinMode(pinB,OUTPUT);
+  pinMode(pinC,OUTPUT);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.println(ReadChannel(3));
+  delay(1000);
+
+}
+
+int ReadChannel(int chnl){
+  int bitA=((chnl & 0x01) > 0) ? HIGH : LOW ;
+  int bitB=((chnl & 0x02) > 0) ? HIGH : LOW ;
+  int bitC=((chnl & 0x04) > 0) ? HIGH : LOW ;
+  
+  digitalWrite(pinA,bitA);
+  digitalWrite(pinB,bitB);
+  digitalWrite(pinC,bitC);
+  int data=analogRead(pinInOut);
+
+  return data;
+}
